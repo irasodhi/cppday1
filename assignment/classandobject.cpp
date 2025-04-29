@@ -17,7 +17,6 @@
 //     int getRollNumber() { return rollNumber; }
 //     double getMarks() { return marks; }
 
-  
 // };
 
 // int main() {
@@ -37,7 +36,7 @@
 //     cout << "Name"<<s.getName()<<endl;
 //     cout<<"rollnumb"<<s.getRollNumber()<<endl;
 //     cout<<"marks"<<s.getMarks()<<endl;
-    
+
 //     return 0;
 // }
 
@@ -66,8 +65,66 @@
 
 //     Rectangle r(l,b);
 //     cout<<"Area"<<r.calculatArea()<<endl;
-// }   
+// }
 
+// #include <iostream>
+// using namespace std;
+// class Bank
+// {
+// public:
+//     string ahn;
+//     int aN;
+//     int b;
+
+//     void deposit(int amt)
+//     {
+//         b += amt;
+//         cout << amt;
+//     }
+//     void withdraw(int amt)
+//     {
+//         if (amt > b)
+//         {
+//             b -= amt;
+//             cout << amt;
+//         }
+//         else:
+//             {
+//                 cout << "balance insufficient";
+//             }
+//     }
+//     void display()
+// {
+//     cout << "acoountholdername" << ahn;
+//     cout << "accountnum" << aN;
+//     cout << "balance" << b;
+// };
+// }
+// int main()
+// {
+//     string name;
+//     int accountnumb;
+//     int balance;
+//     int amt;
+//     int d;
+//     int w;
+
+//     getline(cin, name);
+//     cin >> accountnumb;
+//     cin >> balance;
+
+//     Bank a(name, accountnumb, balance)
+//     {
+//         a.display();
+//         cin >> d;
+//         a.deposit();
+//         a.display();
+
+//         cin >> w;
+//         a.withdraw();
+//         a.display();
+//     }
+// }
 
 // #include <iostream>
 // using namespace std;
@@ -120,7 +177,7 @@
 //     cin >> Balance;
 
 //     Bank a(name, accNum, Balance);
-    
+
 //     a.display();
 
 //     cout << "Enter amount to deposit: ";
@@ -135,6 +192,63 @@
 
 //     return 0;
 // }
+// #include <iostream>
+// using namespace std;
+
+// class Employee{
+//     private:
+//     string name;
+//     int id;
+//     int salary;
+//     public:
+//     Employee(string n,int Id,int s){
+//         name=n;
+//         id=Id;
+//         salary=s;
+//     }
+//     void displayEmployeeDetails(){
+//         cout<<name;
+//         cout<<id;
+//         cout<<salary;
+//     }
+// };
+// int main(){
+
+//         string name;
+//         int id;
+//         int salary;    
+//         getline(cin,name);
+//         cin>>id;
+//         cin>>salary;
+
+
+//         Employee e( name, id,salary);
+
+
+//         e.displayEmployeeDetails();
+//     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // #include <iostream>
 // using namespace std;
 
@@ -178,6 +292,42 @@
 
 //     return 0;
 // }
+// #include <iostream>
+// using namespace std;
+
+// class Book{
+//     private:
+//     string title;
+//     string author;
+//     double price;
+//     public:
+//     Book(string t,string a,double p){
+//         title=t;
+//         author=a;
+//         price=p;
+//     }
+
+//     void displaydetails(){
+//         cout<<title;
+//         cout<<author;
+//         cout<<price;
+//     }
+
+
+// };
+// int main(){
+//     string name;
+//     string an;
+//     double p;
+
+//     getline(cin,name);
+//     getline(cin,an);
+//     cin>>p;
+
+//     Book b(name,an,p);
+//     b.displaydetails();
+// }
+
 
 // #include <iostream>
 // using namespace std;
@@ -205,10 +355,10 @@
 //     }
 
 //     double divide() {
-        
+
 //             return num1 / num2;
 //     }
-      
+
 // };
 
 // int main() {
@@ -237,17 +387,59 @@
 //         case '/':
 //             cout << "Result: " << c.divide() << endl;
 //             break;
-       
+
 //     }
 
 //     return 0;
 // }
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
+// class calculator{
+//     public:
+//     int n1;int n2;
+//     calculator(int num1,int num2){
+//         n1=num1;
+//         n2=num2;
+//     }
+//     int add(){
+//         return n1+n2;
+//     }
+//     int sub(){
+//         return n1-n2;
+//     }
+//     int mul(){
+//         return n1*n2;
+//     }
+//     int div(){
+//         return n1/n2;
+//     }
+// };
+// int main(){
+//     int n1;int n2;
+//     char o;
+//     cin>>n1;
+//     cin>>n2;
+//     cin>>o;
+//     calculator c(n1,n2);
+//     switch (o){
+//         case '+':
+//         cout<<c.add();
+//         break;
+//         case '-':
+//         cout<<c.sub();
+//         break;
+//         case '*':
+//         cout<<c.mul();
+//         break;
+//         case '/':
+//         cout<<c.div();
+//         break;
+//     }
+// }
 
 // class Book {
-      
+
 // public:
 //     Book(string t, string a, int p, float pr) {
 //         string title, author;
@@ -274,12 +466,12 @@ using namespace std;
 //     Book b3("Wings of Fire", "A.P.J Abdul Kalam", 180, 399.00);
 //     Book b4("Its ends with us", "Colleen Hover", 218, 199.75);
 //     Book b5("maths", "Goyal", 328, 349.99);
-    
+
 //     cout << "Book Details:\n";
 //     b1.printDetails();
 //     b2.printDetails();
 //     b3.printDetails();
-//     b4.printDetails(); 
+//     b4.printDetails();
 //     b5.printDetails();
 
 //     return 0;
@@ -308,7 +500,7 @@ using namespace std;
 
 // int main() {
 //     double meters;
-    
+
 //     cout << "Enter distance in meters: ";
 //     cin >> meters;
 
@@ -353,12 +545,11 @@ using namespace std;
 //     cin >> r;
 
 //     Circle c(r);
-    
+
 //     c.display();
 
 //     return 0;
 // }
-
 
 // #include <iostream>
 // #include <string>
@@ -401,7 +592,7 @@ using namespace std;
 //     cin >> price;
 
 //     Movie m(title, duration, price);
-    
+
 //     m.display();
 
 //     cout << "\nEnter number of tickets to book: ";
@@ -455,7 +646,5 @@ using namespace std;
 //     cout << "\nEnter number of days to rent: ";
 //     cin >> days;
 
-//     cout << "Total Rent:" << c.rent(days) << endl;  
+//     cout << "Total Rent:" << c.rent(days) << endl;
 // }
-
-

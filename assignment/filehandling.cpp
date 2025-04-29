@@ -1614,3 +1614,227 @@ int main() {
 
     return 0;
 }
+
+
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+
+using namespace std;
+
+class Book
+{
+private:
+    int bookId;
+    string bookName;
+    string authorName;
+    string status = "Available";
+
+public:
+    Book() {}
+    Book(int id, string bName, string aName) : bookId(id), bookName(bName), authorName(aName) {}
+    
+    int getBookId() { return bookId; }
+    string getBookName() { return bookName; }
+    string getAuthorName() { return authorName; }
+    string getStatus() { return status; }
+
+    void setBookId(int id) { bookId = id; }
+    void setBookName(string name) { bookName = name; }
+    void setAuthorName(string name) { authorName = name; }
+    void setStatus(string status) { this->status = status; }
+
+    string toString()
+    {
+        return to_string(bookId) + "," + bookName + "," + authorName + "," + status;
+    }
+};
+
+class BookService
+{
+public:
+    virtual string addBook(Book &book) = 0;
+    virtual Book getBookById(int bookId) = 0;
+    virtual void getAllBooks() = 0;
+    virtual string updateBookById(Book &book) = 0;
+    virtual string deleteBookById(int bookId) = 0;
+};
+
+class BookServiceImpl : public BookService
+{
+public:
+    string addBook(Book &book) override
+    {
+        ofstream file("library.txt", ios::app);
+        if (!file.is_open()) return "Error While Opening the File";
+        file << book.toString() << "\n";
+        file.close();
+        return "New Book has been added successfully!";
+    }
+
+    Book getBookById(int bookId) override
+    {
+        ifstream file("library.txt");
+        if (!file.is_open())
+        {
+            cout << "Error While Opening the File" << endl;
+            return Book();
+        }
+        string line;
+        while (getline(file, line))
+        {
+            stringstream ss(line);
+            string id, title, author, status;
+            getline(ss, id, ',');
+            getline(ss, title, ',');
+            getline(ss, author, ',');
+            getline(ss, status, ',');
+
+            if (stoi(id) == bookId)
+                return Book(stoi(id), title, author);
+        }
+        return Book();
+    }
+
+    void getAllBooks() override
+    {
+        ifstream file("library.txt");
+        if (!file.is_open())
+        {
+            cout << "Error While Opening the File" << endl;
+            return;
+        }
+        string line;
+        cout << "\nList of Books:\n";
+        while (getline(file, line))
+            cout << line << endl;
+        file.close();
+    }
+
+    string updateBookById(Book &book) override
+    {
+        ifstream file("library.txt");
+        vector<Book> books;
+        string line;
+        while (getline(file, line))
+        {
+            stringstream ss(line);
+            string bookId, bookName, authorName, status;
+            getline(ss, bookId, ',');
+            getline(ss, bookName, ',');
+            getline(ss, authorName, ',');
+            getline(ss, status, ',');
+
+            Book receivedBook(stoi(bookId), bookName, authorName);
+            receivedBook.setStatus(status);
+            books.push_back(receivedBook);
+        }
+        file.close();
+
+        ofstream addFile("library.txt", ios::trunc);
+        bool isUpdated = false;
+        for (auto &b : books)
+        {
+            if (b.getBookId() == book.getBookId())
+            {
+                b.setBookName(book.getBookName());
+                b.setAuthorName(book.getAuthorName());
+                b.setStatus(book.getStatus());
+                isUpdated = true;
+            }
+            addFile << b.toString() << "\n";
+        }
+        addFile.close();
+        return isUpdated ? "Updated Successfully." : "Invalid Id";
+    }
+
+    string deleteBookById(int bookId) override
+    {
+        ifstream file("library.txt");
+        if (!file.is_open()) return "Error opening file!";
+
+        vector<Book> books;
+        string line;
+        bool found = false;
+        while (getline(file, line))
+        {
+            stringstream ss(line);
+            string id, bookName, bookAuthor, status;
+            getline(ss, id, ',');
+            getline(ss, bookName, ',');
+            getline(ss, bookAuthor, ',');
+            getline(ss, status, ',');
+
+            if (stoi(id) != bookId)
+                books.push_back(Book(stoi(id), bookName, bookAuthor));
+            else
+                found = true;
+        }
+        file.close();
+
+        ofstream outFile("library.txt", ios::trunc);
+        for (auto &b : books)
+            outFile << b.toString() << "\n";
+        outFile.close();
+
+        return found ? "Deleted successfully" : "Invalid Book Id";
+    }
+};
+
+class BookUI
+{
+public:
+    static void showMenu()
+    {
+        cout << "1. Add Book\n2. Search Book By Id\n3. Get All Books\n4. Update Book By Id\n5. Delete Book By Id\n6. Exit\nEnter Your Choice: ";
+    }
+
+    static void addNewBook()
+    {
+        int id;
+        string title, author;
+        cout << "Enter Unique Book Id: ";
+        cin >> id;
+        cin.ignore();
+        cout << "Enter Book Title: ";
+        getline(cin, title);
+        cout << "Enter Book Author Name: ";
+        getline(cin, author);
+        
+        Book newBook(id, title, author);
+        BookServiceImpl bookService;
+        cout << bookService.addBook(newBook) << endl;
+    }
+
+    static void bookById()
+    {
+        int id;
+        cout << "Enter Book Id: ";
+        cin >> id;
+        BookServiceImpl bookService;
+        Book book = bookService.getBookById(id);
+        if (book.getBookId() != id) cout << "Invalid Book Id\n";
+        else cout << "Id: " << book.getBookId() << " Name: " << book.getBookName() << " Author: " << book.getAuthorName() << " Status: " << book.getStatus() << endl;
+    }
+};
+
+int main()
+{
+    cout << "Welcome to Library Management System!" << endl;
+    bool isAppRunning = true;
+    while (isAppRunning)
+    {
+        BookUI::showMenu();
+        int choice;
+        cin >> choice;
+        switch (choice)
+        {
+        case 1: BookUI::addNewBook(); break;
+        case 2: BookUI::bookById(); break;
+        case 3: BookServiceImpl().getAllBooks(); break;
+        case 6: isAppRunning = false; cout << "Thank you for using the application!\n"; break;
+        default: cout << "Invalid Choice, Please Try Again\n"; break;
+        }
+    }
+}

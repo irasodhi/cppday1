@@ -164,6 +164,42 @@ int main() {
 }
 */
 
+
+#include <iostream>
+using namespace std;
+
+class Employee{
+    private:
+    int id;
+    string name;
+    int size;
+    public:
+    Employee(int ID,string n,int s){
+        id=ID;
+        name=n;
+        size=s;
+    }
+    int getid(){
+        return id;
+    }
+    string getname(){
+        return name;
+    }
+    int getsize(){
+        return size;
+    }
+
+};
+int main(){
+    Employee e1("1001","Akash","8");
+    e1.getid();
+    e1.getname();
+    e1.getsize();
+}
+
+// namespace std;
+
+
 // Question 4 :
 /*
 #include <iostream>

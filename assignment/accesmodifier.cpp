@@ -102,7 +102,98 @@ int main() {
 
     return 0;
 }
-*/
+// */
+
+// #include <iostream>
+// #include <cmath>
+// using namespace std;
+
+// class Point{
+//     private:
+//     int x;
+//     int y;
+//     public:
+//     Point (int x,int y){
+//         this->x=x;
+//         this->y=y;
+//     }
+//     friend double CalculateDistance(const Point& p1,const Point& p2 );
+// };
+// double CalculateDistance(const Point& p1,const Point &p2){
+//     double dx=p2.x-p1.x;
+//     double dy=p2.y-p1.y;
+//     return sqrt(dx*dx+dy*dy);
+
+
+// };
+// int main(){
+//     Point p1(7.0,3.0);
+//     Point p2(8.0,7.0);
+//     cout<<CalculateDistance(p1,p2);
+// }
+
+// #include <iostream>
+// using namespace std;
+// class Employee{
+//     private:
+//     string name;
+//     int salary;
+//     public:
+//     Employee(string name,int salary){
+//         this->name=name;
+//         this->salary=salary;
+//     }
+//     friend class HR;
+
+// };
+// class HR{
+//     public:
+//     void showSalary(const Employee &e1){
+//         cout<<e1.name;
+//         cout<<e1.salary;
+//     }
+// };
+// int main(){
+//     Employee e1("Rakesh",40000);
+//     HR h1;
+//     h1.showSalary(e1);
+
+// }
+
+// #include <iostream>
+// using namespace std;
+// class box{
+//     private:
+//     int length;
+//     int width;
+//     int height;
+//     public:
+//     box(int l,int w,int h){
+//         length=l;
+//         height=h;
+//         width=w;
+//     }
+//     int vol(){
+//         return length*height*width;
+//     }
+//     friend void isBigger(box b1,box b2);
+// };
+// void isBigger(box b1,box b2){
+//      if( b1.vol()>b2.vol()){
+//         cout<<b1.vol();
+//      }
+//      else if(b1.vol()<b2.vol()){
+//         cout<<b2.vol();
+//      }
+//      else{
+//         cout<<"vol is equal";
+//      }
+// };
+// int main(){
+//     box b1(4,4,5);
+//     box b2(4,5,6);
+//     isBigger(b1,b2);
+// }
 
 // Question 3 :
 
@@ -316,6 +407,50 @@ int main() {
 }
 */
 
+#include <iostream>
+using namespace std;
+class Complex{
+    private:
+    int real;
+    int img;
+    public:
+    Complex(){
+        real=0;
+        img=0;
+    }
+    Complex(int r,int i){
+        real=r;
+        img=i;
+    }
+    friend Complex operator +(Complex& c1,Complex& c2);
+    void print() {
+        cout << real << " + " << img << "i" << endl;
+    }
+};
+Complex operator+(Complex& c1,Complex& c2){
+    Complex temp;
+    temp.real=c1.real+c2.real;
+    temp.img=c1.img+c2.img;
+    return temp;
+};
+int main(){
+    Complex c1(4,5);
+    Complex c2(4,7);
+    Complex c3;
+    c3=c1+c2;
+    c3.print();
+}
+
+
+
+
+
+
+
+
+
+
+
 // #include <iostream>
 // using namespace std;
 // class Complex
@@ -353,60 +488,63 @@ int main() {
 //     c3.print();
 // }
 
-// Question 7 :
 
-#include <iostream>
-using namespace std;
 
-class B;
-class A
-{
-private:
-    int valA;
 
-public:
-    A(int v)
-    {
-        valA = v;
-    }
-    void display()
-    {
-        cout << valA;
-    }
-    friend void swapValues(A &a, B &b);
-};
-class B
-{
-private:
-    int valB;
+// class Complex{
+//     private:
 
-public:
-    B(int v)
-    {
-        valB = v;
-    }
-    void display()
-    {
-        cout << valB;
-    }
-    friend void swapValues(A &a, B &b);
-};
-void swapValues(A &a, B &b)
-{
-    int temp = a.valA;
-    a.valA = b.valB;
-    b.valB = temp;
 }
-int main()
-{
-    A oa(10);
-    B ob(20);
-    oa.display();
-    ob.display();
-    swapValues(oa, ob);
-    oa.display();
-    ob.display();
-}
+
+// class B;
+// class A
+// {
+// private:
+//     int valA;
+
+// public:
+//     A(int v)
+//     {
+//         valA = v;
+//     }
+//     void display()
+//     {
+//         cout << valA;
+//     }
+//     friend void swapValues(A &a, B &b);
+// };
+// class B
+// {
+// private:
+//     int valB;
+
+// public:
+//     B(int v)
+//     {
+//         valB = v;
+//     }
+//     void display()
+//     {
+//         cout << valB;
+//     }
+//     friend void swapValues(A &a, B &b);
+// };
+// void swapValues(A &a, B &b)
+// {
+//     int temp = a.valA;
+//     a.valA = b.valB;
+//     b.valB = temp;
+// };
+// int main()
+// {
+//     A oa(10);
+//     B ob(20);
+//     oa.display();
+//     ob.display();
+//     swapValues(oa, ob);
+//     oa.display();
+//     ob.display();
+// }
 
 // Question 8 :
 /*
@@ -442,6 +580,9 @@ int main() {
     return 0;
 }
 */
+
+
+
 
 // Question 9 :
 /*

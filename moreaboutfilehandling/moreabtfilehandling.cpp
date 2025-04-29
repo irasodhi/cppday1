@@ -295,30 +295,108 @@
 
 // }
 
+// #include <iostream>
+// #include <fstream>
+// #include <sstream>
+// using namespace std;
+// void showmenu(){
+//     cout << " 1 add new bppk" << endl;
+//     cout << "2 search by book id" << endl;
+//     cout << "3 get all books" << endl;
+//     cout << "4 update book by id" << endl;
+//     cout << "5 delete book by id" << endl;
+//     cout << "6 exit"<<endl;
+//     cout<<"enter your choice"<<endl;
+// }
+// int main()
+// {
+//     bool Apprunning = true;
+//     while (Apprunning)
+//     {
+//         showmenu();
+//         int choice;
+//         cin>>choice;
+//         switch(choice){
+//             case1:
+//             St
+//         }
+//     }
+// }
 #include <iostream>
 #include <fstream>
-#include <sstream>
 using namespace std;
-void showmenu(){
-    cout << " 1 add new bppk" << endl;
-    cout << "2 search by book id" << endl;
-    cout << "3 get all books" << endl;
-    cout << "4 update book by id" << endl;
-    cout << "5 delete book by id" << endl;
-    cout << "6 exit"<<endl;
-    cout<<"enter your choice"<<endl;
+
+void addStudent()
+{
+    int id;
+    string name,city;
+    cout << "enter unique id";
+    cin >> id;
+
+    cin.ignore();
+    cout << "enter student name";
+    getline(cin, name);
+
+    cout << "enter student city";
+    getline(cin, city);
+
+    ofstream file("student.txt", ios::app);
+    file <<rollNumber<<","<<name<<","<<city<<"\n";
+            file.close();
+            return "Student Added successfully.";
+}
+void getstudentbyid(){
+    int id;
+    cout<<"enter student id";
+    cin>>id;
+
+    ifstream file("student.txt";
+    string line;
+while(getline(file,line)){
+    stringstream ss(line);
+    string studentid ,studentname,studentcity;
+    getline(ss,studentid,',');
+
+    if (stoi(studentId)==id)
+}
 }
 int main()
 {
-    bool Apprunning = true;
-    while (Apprunning)
+    bool isRunning = true;
+    while (true)
     {
-        showmenu();
+        cout << "1 add student" << endl;
+        cout << "2 get student by id" << endl;
+        cout << "3 update student by id" << endl;
+        cout << "4 delete student by id" << endl;
+        cout << "enter choice";
         int choice;
-        cin>>choice;
-        switch(choice){
-            case1:
-            St
+        cin >> choice;
+        switch (choice)
+        {
+        case 1:
+            addStudent();
+            break;
+        case 2:
+            getStudentByid();
+            break;
+        case 3:
+            updateStudentbyid();
+            break;
+        case 4:
+            deletestudentbyid();
+            break;
+        case 5:
+            cout << "Do you want to exit(y/n)?: ";
+            char res;
+            cin >> res;
+            if (res == 'y' || res == 'Y')
+                isAppRunning = false;
+            cout << "Thank you for using the applicaiton!";
+            break;
+        default:
+            cout << "Invalid Choice, Please try again!";
+            break;
         }
     }
 }

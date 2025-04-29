@@ -399,46 +399,46 @@
 //    }
 // }
 
-#include <iostream>
-using namespace std;
-class Robot{
-    public:
-    string model;
-    int weight;
-    Robot(string m,int w){
-        model=m;
-        weight=w;
-    }
-    virtual void robotinfo() const{
-        cout<<model;
-        cout<<weight;
-    }
-};
-class Functionality:virtual public Robot{
-    public:
-    string tasktype;
-    Functionality(string m,int w,string t):Robot(m,w),tasktype(t){}
-        void robotinfo() const override{
-        Robot::robotinfo();
-        cout<<tasktype;
-    }
-};
-class Energysource:virtual public Robot{
-    public:
-    string energytype;
-    energytype(string m,int w,string e):Robot(m,w),energytype(e){}
-    void robotinfo() const override{
-        Robot::robotinfo();
-        cout<<energytype;
-    }
-};
-class Smartrobot:virtual public Robot{
-    public:
+// #include <iostream>
+// using namespace std;
+// class Robot{
+//     public:
+//     string model;
+//     int weight;
+//     Robot(string m,int w){
+//         model=m;
+//         weight=w;
+//     }
+//     virtual void robotinfo() const{
+//         cout<<model;
+//         cout<<weight;
+//     }
+// };
+// class Functionality:virtual public Robot{
+//     public:
+//     string tasktype;
+//     Functionality(string m,int w,string t):Robot(m,w),tasktype(t){}
+//         void robotinfo() const override{
+//         Robot::robotinfo();
+//         cout<<tasktype;
+//     }
+// };
+// class Energysource:virtual public Robot{
+//     public:
+//     string energytype;
+//     energytype(string m,int w,string e):Robot(m,w),energytype(e){}
+//     void robotinfo() const override{
+//         Robot::robotinfo();
+//         cout<<energytype;
+//     }
+// };
+// class Smartrobot:virtual public Robot{
+//     public:
     
 
 
 
-}
+// }
 
 
 

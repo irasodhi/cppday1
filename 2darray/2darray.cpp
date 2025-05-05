@@ -548,28 +548,28 @@
 // cout<<longest;
 // }      
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-int main() {
-    int num;
-    cin>>num;
-    int sum=0;
-    for (int i=2;i<num;i++){
-        int prime=1;
-        for( int j=2;j*j<num;j++){
-            if(i%j==0){
-                int prime=0;
-                break;
-            }
-        }
-        if(prime==1){
-        sum+=i;
-        }
+// int main() {
+//     int num;
+//     cin>>num;
+//     int sum=0;
+//     for (int i=2;i<num;i++){
+//         int prime=1;
+//         for( int j=2;j*j<num;j++){
+//             if(i%j==0){
+//                 int prime=0;
+//                 break;
+//             }
+//         }
+//         if(prime==1){
+//         sum+=i;
+//         }
         
-    }
-    cout<<sum;
-}
+//     }
+//     cout<<sum;
+// }
 
 
 

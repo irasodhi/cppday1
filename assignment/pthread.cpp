@@ -304,61 +304,104 @@
 
 
 
-#include <iostream>
-#include <pthread.h>
-using namespace std;
+// #include <iostream>
+// #include <pthread.h>
+// using namespace std;
 
-pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER; // Mutex for synchronized output
+// pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER; // Mutex for synchronized output
 
-void* tableOf2(void* arg) {
-    pthread_mutex_lock(&lock);
-    cout << "Table of 2:\n";
-    for (int i = 1; i <= 10; i++) {
-        cout  << 2 * i << endl;
-    }
-    cout << "------------------------" << endl;
-    pthread_mutex_unlock(&lock);
-    return nullptr;
-}
+// void* tableOf2(void* arg) {
+//     pthread_mutex_lock(&lock);
+//     cout << "Table of 2:\n";
+//     for (int i = 1; i <= 10; i++) {
+//         cout  << 2 * i << endl;
+//     }
+//     cout << "------------------------" << endl;
+//     pthread_mutex_unlock(&lock);
+//     return nullptr;
+// }
 
-// Function to print table of 5
-void* tableOf5(void* arg) {
-    pthread_mutex_lock(&lock);
-    cout << "Table of 5:\n";
-    for (int i = 1; i <= 10; i++) {
-        cout << 5 * i << endl;
-    }
-    cout << "------------------------" << endl;
-    pthread_mutex_unlock(&lock);
-    return nullptr;
-}
+// // Function to print table of 5
+// void* tableOf5(void* arg) {
+//     pthread_mutex_lock(&lock);
+//     cout << "Table of 5:\n";
+//     for (int i = 1; i <= 10; i++) {
+//         cout << 5 * i << endl;
+//     }
+//     cout << "------------------------" << endl;
+//     pthread_mutex_unlock(&lock);
+//     return nullptr;
+// }
 
-// Function to print table of 10
-void* tableOf10(void* arg) {
-    pthread_mutex_lock(&lock);
-    cout << "Table of 10:\n";
-    for (int i = 1; i <= 10; i++) {
-        cout << 10 * i << endl;
-    }
-    cout << "------------------------" << endl;
-    pthread_mutex_unlock(&lock);
-    return nullptr;
-}
+// // Function to print table of 10
+// void* tableOf10(void* arg) {
+//     pthread_mutex_lock(&lock);
+//     cout << "Table of 10:\n";
+//     for (int i = 1; i <= 10; i++) {
+//         cout << 10 * i << endl;
+//     }
+//     cout << "------------------------" << endl;
+//     pthread_mutex_unlock(&lock);
+//     return nullptr;
+// }
 
-int main() {
-    pthread_t t1, t2, t3;
+// int main() {
+//     pthread_t t1, t2, t3;
 
-    pthread_create(&t1, nullptr, tableOf2, nullptr);
-    pthread_create(&t2, nullptr, tableOf5, nullptr);
-    pthread_create(&t3, nullptr, tableOf10, nullptr);
+//     pthread_create(&t1, nullptr, tableOf2, nullptr);
+//     pthread_create(&t2, nullptr, tableOf5, nullptr);
+//     pthread_create(&t3, nullptr, tableOf10, nullptr);
 
-    pthread_join(t1, nullptr);
-    pthread_join(t2, nullptr);
-    pthread_join(t3, nullptr);
+//     pthread_join(t1, nullptr);
+//     pthread_join(t2, nullptr);
+//     pthread_join(t3, nullptr);
 
-    cout << "All tables have been printed." << endl;
+//     cout << "All tables have been printed." << endl;
 
-    return 0;
-}
+//     return 0;
+// }
 
 
+
+
+// #include <iostream>
+// #include<mutex>
+// #include <pthread.h>
+// using namespace std;
+// mutex m;
+
+// int arr[10];
+// int pro1=1;
+// int pro2=1;
+// void* firstarr(void* args){
+//     m.lock();
+//     for(int i=0;i<=5;i++){
+//         pro1*=arr[i];
+//     }
+//     cout<<pro1;
+//     cout<<"----------";
+//     m.unlock();
+//     return nullptr;
+// }
+// void* secondarr(void* args){
+//     m.lock();
+
+//     for(int i=6;i<10;i++){
+//         pro2*=arr[i];
+//     }
+//     cout<<pro2;
+//     cout<<"----------";
+//     m.unlock();
+//     return nullptr;
+// }
+// int main() {
+//      for (int i = 0; i < 10; i++) {
+//         arr[i] = i + 1;
+//     }
+//    pthread_t t1,t2;
+//    pthread_create(&t1,NULL,firstarr,NULL);
+//    pthread_create(&t2,NULL,secondarr,NULL);
+//    pthread_join(t1,NULL);
+//    pthread_join(t2,NULL);
+//    cout<<"all thread have completed.TOTAL"<<pro1+pro2<<endl;
+// }

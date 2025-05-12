@@ -405,3 +405,4 @@
 //    pthread_join(t2,NULL);
 //    cout<<"all thread have completed.TOTAL"<<pro1+pro2<<endl;
 // }
+

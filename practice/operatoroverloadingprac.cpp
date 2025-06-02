@@ -74,6 +74,42 @@
 //         cout << "c1 is not equal to c3" << endl;
 // }
 
+
+
+
+// #include <iostream>
+// using namespace std;
+// class Complex{
+//     public:
+//     int real;
+//     int img;
+//     Complex(int r=0,int i=0){
+//         real=r;
+//         img=i;
+//     }
+//     Complex operator+(const Complex &obj){
+//         int r=real+obj.real;
+//         int i=img+obj.img;
+//         return Complex(r,i);
+//     }
+//     void display(){
+//         cout<<real<<"+"<<img<<"i"<<endl;
+//     }
+// };
+
+// int main() {
+//     int r1,r2,i1,i2;
+//     cin>>r1>>r2>>i1>>i2;
+//     Complex c1(r1,i1);
+//     Complex c2(r2,i2);
+//     Complex c3=c1+c2;
+//     c3.display();
+
+
+// }
+
+
+
 // #include <iostream>
 // using namespace std;
 
@@ -103,6 +139,61 @@
 //    c1.display();
 // }
 
+
+
+
+// #include <iostream>
+// using namespace std;
+// int gcd(int a,int b){
+//     int smaller;
+//     int gcd=1;
+//     if(a>b){
+//         smaller=b;
+//     }
+//     if(a<b){
+//         smaller=a;
+//     }
+//     for(int i=1;i<=smaller;i++){
+//     if(a%i==0 && b%i==0){
+//         gcd=i;
+//     }
+
+// }
+// return gcd;
+// }
+// class fraction{
+//     int num;
+//     int den;
+//     void simplify(){
+//         int g=gcd(abs(num),abs(den));
+//         num/=g;
+//         den/=g;
+//     }
+//     public:
+//     fraction(int n=0,int d=1){
+//         num=n;
+//         den=d;
+//         simplify();
+//     }
+//     fraction operator+(const fraction &obj){
+//         int n=num*obj.den+den*obj.num;
+//         int d=den*obj.den;
+//         return fraction(n,d);
+//     }
+    
+//     void display() const {
+//         cout << num << "/" << den << endl;
+//     }
+// };
+
+// int main() {
+//    int n1,n2,d1,d2;
+//    cin>>n1>>d1>>n2>>d2;
+//    fraction f1(n1,d1);
+//    fraction f2(n2,d2);
+//    fraction f3=f1+f2;
+//    f3.display();
+// }
 // #include <iostream>
 // using namespace std;
 
@@ -142,7 +233,7 @@
 //         int d=den*obj.den;
 //         return fraction(n,d);
 //     }
-// // }
+// }
 // #include <iostream>
 // #include <vector>
 // using namespace std;
@@ -428,6 +519,91 @@
 //     Complex c3=c1+c2;
 //     c3.display();
 // }
+
+// #include <iostream>
+// using namespace std;
+
+// class calc{
+//     public:
+//     int inch;
+//     int feet;
+//     calc(int i,int f){
+//         inch=i;
+//         feet=f;
+//         normalize();
+//     }
+//     void normalize(){
+//         feet+=inch/12;
+//         inch=inch%12;
+//     }
+    
+
+//     calc operator+(const calc &obj){
+//         calc re;
+//         re.feet=feet+d.feet;
+//         re.inch=inch+d.inch;
+//         re.normalize();
+//         return re;
+//     }
+// }
+// int main() {
+//     cout << "Hello, World!" << endl;
+//     return 0;
+// }
+
+
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Shape{
+    
+    public:
+  
+    virtual void display()=0;
+  
+};
+class Rectangle:public Shape{
+    private:
+    double length;
+    double width;
+    public:
+    Rectangle(double l,double w){
+        length=l;
+        width=w;
+    }
+    void display() override{
+        cout<<fixed<<setprecision(3)<<(lenghth*width)+3;
+      
+    }
+    
+};
+class Trapezoid:public Shape{
+    private:
+    int br1,br2,hi;
+    public:
+    Trapezoid(int b1,int b2,int h){
+        br1=b1;
+        br2=b2;
+        hi=h;
+    }
+    void display() override{
+        double result=(0.5*(br1+br2)*hi)-4;
+        cout<<fixed<<setprecision(3)<<result;
+    }
+   
+    
+};
+
+
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}
+
+
 
 // #include <iostream>
 // using namespace std;

@@ -168,6 +168,43 @@
 // #include <iostream>
 // using namespace std;
 
+// int main()
+// {
+//     int n;
+//     cin >> n;
+//     int arr[n];
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> arr[i];
+//     }
+//     int j = 0;
+//     for (int i = 0; i < n; i++)
+//     {
+//         bool isduplicate = false;
+//         for (int k = 0; k < j; k++)
+//         {
+//             if (arr[i] == arr[k]){
+                
+//             isduplicate = true;
+//             break;
+//         }
+//     }
+//     if (!isduplicate)
+//     {
+//         arr[j] = arr[i];
+//         j++;
+//     }
+//     cout << "Array after removing duplicates: ";
+//     for (int i = 0; i < j; i++)
+//     {
+//         cout << arr[i] << " ";
+//     }
+// }
+// }
+
+// #include <iostream>
+// using namespace std;
+
 // int main() {
 //    int n;
 //    cin>>n;
@@ -273,6 +310,10 @@
 //    }
 // }
 
+
+
+
+// swap an array
 // #include <iostream>
 // using namespace std;
 
@@ -291,8 +332,9 @@
 // }
 // }
 
-// #include <iostream>
-// using namespace std;
+// min and max
+//  #include <iostream>
+//  using namespace std;
 
 // int main() {
 //     int n;
@@ -311,8 +353,12 @@
 // cout<<min;
 // // }
 
-// #include <iostream>
-// using namespace std;
+
+
+
+// find the missing element
+//  #include <iostream>
+//  using namespace std;
 
 // int main() {
 //     int n;
@@ -330,6 +376,11 @@
 //         cout<<ans;
 //     }
 
+
+
+
+
+// merging two sorted array
 // #include <iostream>
 // using namespace std;
 // void merge(int arr1[],int arr2[],int n1,int n2,int arr3[]){
@@ -384,7 +435,7 @@
 //         }
 //     }
 //     while(i<n1){
-//         arr3[k++]=arr1[i++];
+//         arr3[k++]=arr1[i++]; 
 //     }
 //     while(j<n2){
 //         arr3[k++]=arr2[j++];
@@ -413,28 +464,32 @@
 
 // }
 
-// #include <iostream>
-// using namespace std;
-// void sort(int arr[],int n){
-//     int low=0,mid=0,high=n-1;
-//     while(mid<=high){
-//         if (arr[mid]==0){
-//             swap(arr[low++],arr[mid++]);
-//         }
-//         else if(arr[mid]==1){
-//             mid++;
-//         }
-//         else{
-//             swap(arr[mid],arr[high--]);
-//         }
-//     }
-// }
-// int main() {
-//     int n;
-//     cin>>n;
-//     int arr[n];
-//     for(int i=0;i<n;i++){
-//         cin>>arr[i];
+
+
+
+// sort 0 1 2
+//  #include <iostream>
+//  using namespace std;
+//  void sort(int arr[],int n){
+//      int low=0,mid=0,high=n-1;
+//      while(low<=high){
+//          if (arr[mid]==0){
+//              swap(arr[low++],arr[mid++]);
+//          }
+//          else if(arr[mid]==1){
+//              mid++;
+//          }
+//          else{
+//              swap(arr[mid],arr[high--]);
+//          }
+//      }
+//  }
+//  int main() {
+//      int n;
+//      cin>>n;
+//      int arr[n];
+//      for(int i=0;i<n;i++){
+//          cin>>arr[i];
 
 //     }
 //     sort(arr,n);
@@ -443,6 +498,26 @@
 //     }
 
 // }
+
+
+
+void sort(int arr[],int n){
+    for(int i=0;i<n-1;i++){
+        for(int j=0;j<n-i-1;j++){
+            if(arr[j]>arr[j+1]){
+                int temp=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
+            }
+        }
+    }
+}
+
+
+ 
+
+
+// if arr an subset
 // #include <iostream>
 // using namespace std;
 
@@ -500,20 +575,23 @@
 
 // }
 
-// #include <iostream>
-// using namespace std;
-// void sort(int arr[],int n){
-//     for(int i=0;i<n-1;i++){
-//         for(int j=0;j<n-i-1;j++){
-//             if(arr[j]>arr[j+1]){
-//             int temp=arr[j];
-//             arr[j]=arr[j+1];
-//             arr[j+1]=temp;
-//         }
-//     }
-// }
-// }
-// void merge(int arr1[],int n1,int n2,int arr2[]){
+
+
+// merge two arr without gap
+//  #include <iostream>
+//  using namespace std;
+//  void sort(int arr[],int n){
+//      for(int i=0;i<n-1;i++){
+//          for(int j=0;j<n-i-1;j++){
+//              if(arr[j]>arr[j+1]){
+//              int temp=arr[j];
+//              arr[j]=arr[j+1];
+//              arr[j+1]=temp;
+//          }
+//      }
+//  }
+//  }
+//  void merge(int arr1[],int n1,int n2,int arr2[]){
 
 //     int i=n1-1;
 //     int j=0;
@@ -545,38 +623,39 @@
 //        }
 //        merge(arr1, n1, n2, arr2);
 //        for(int i=0;i<n1;i++){
-//         cout<<arr1[i];
+//         cout<<arr1[i];d
 //        }
 //        for(int i=0;i<n2;i++){
 //         cout<<arr2[i];
 //        }
 // }
 
-// #include <iostream>
-// using namespace std;
-// void sort(int arr[], int n)
-// {
-//     for (int i = 0; i < n - 1; i++)
-//     {
-//         for (int j = 0; j < n - i - 1; j++)
-//         {
-//             if (arr[j] > arr[j + 1])
-//             {
-//                 int temp = arr[j];
-//                 arr[j] = arr[j + 1];
-//                 arr[j + 1] = temp;
-//             }
-//         }
-//     }
-// }
-// int psum(int arr[], int n1, int sum)
-// {
-//     int right = n1 - 1;
-//     int left = 0;
-//     int count = 0;
-//     while (left < right)
-//     {
-//         int curentsum = arr[left] + arr[right];
+// find pairs
+//  #include <iostream>
+//  using namespace std;
+//  void sort(int arr[], int n)
+//  {
+//      for (int i = 0; i < n - 1; i++)
+//      {
+//          for (int j = 0; j < n - i - 1; j++)
+//          {
+//              if (arr[j] > arr[j + 1])
+//              {
+//                  int temp = arr[j];
+//                  arr[j] = arr[j + 1];
+//                  arr[j + 1] = temp;
+//              }
+//          }
+//      }
+//  }
+//  int psum(int arr[], int n1, int sum)
+//  {
+//      int right = n1 - 1;
+//      int left = 0;
+//      int count = 0;
+//      while (left < right)
+//      {
+//          int curentsum = arr[left] + arr[right];
 
 //         if (curentsum == sum)
 //         {
@@ -616,3 +695,113 @@
 
 //     return 0;
 // }
+
+// //union of two array
+// #include <iostream>
+// using namespace std;
+// void sort(int arr[],int n){
+//     for(int i=0;i<=n-1;i++){
+//         for(int j=0;j<n-i-1;j++){
+//             if(arr[j]>arr[j+1]){
+//                 int temp=arr[j];
+//                 arr[j]=arr[j+1];
+//                 arr[j+1]=temp;
+//             }
+//         }
+//     }
+// }
+// int removeduplicate(int arr[],int n){
+//     if(n==0||n==1){
+//         return n;
+//     }
+//     int j=0;
+//     for(int i = 1; i < n; i++) {
+//     if(arr[i]!=arr[j]){
+//         j++;
+//         arr[j]=arr[i];
+//     }
+// }
+// return j+1;
+// }
+
+// int merge(int arr1[],int n1,int n2,int arr2[],int merged[]){
+//     for(int i=0;i<n1;i++){
+//         merged[i]=arr1[i];
+//     }
+//     for(int i=0;i<n2;i++){
+//         merged[n1+i]=arr2[i];
+//     }
+//     return n1+n2;
+// }
+
+// int main(){
+//     int n1, n2;
+//     cin >> n1 >> n2;
+
+//     int arr1[n1], arr2[n2];
+
+//     for(int i = 0; i < n1; i++) cin >> arr1[i];
+//     for(int i = 0; i < n2; i++) cin >> arr2[i];
+
+//     int merged[n1 + n2];
+
+//     int totalSize = merge(arr1, n1, arr2, n2, merged);
+//     sort(merged, totalSize);
+//     int uniqueSize = removeduplicate(merged, totalSize);
+
+//     cout << "Union of arrays: ";
+//     for(int i = 0; i < uniqueSize; i++){
+//         cout << merged[i] << " ";
+//     }
+
+//     return 0;
+// }
+
+// intersection
+
+// #include <iostream>
+// using namespace std;
+
+// void inter(int arr1[], int n1, int arr2[], int n2)
+// {
+//     int i = 0;
+//     int j = 0;
+//     while (i < n1 && j < n2)
+//     {
+//         if (arr1[i] < arr2[j])
+//         {
+//             i++;
+//         }
+//         else if (arr1[i] > arr2[j])
+//         {
+//             j++;
+//         }
+//         else{
+//             cout<<arr1[i]<<" ";
+//             i++;
+//             j++;
+//         }
+
+//     }
+// }
+// int main()
+// {
+//     int n1, n2;
+//     cout << "Enter sizes of two arrays: ";
+//     cin >> n1 >> n2;
+
+//     int arr1[n1], arr2[n2];
+
+//     cout << "Enter elements of first sorted array:\n";
+//     for (int i = 0; i < n1; i++) cin >> arr1[i];
+
+//     cout << "Enter elements of second sorted array:\n";
+//     for (int i = 0; i < n2; i++) cin >> arr2[i];
+
+//     inter(arr1, n1, arr2, n2);
+
+// }
+
+
+
+    

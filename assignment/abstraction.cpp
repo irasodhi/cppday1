@@ -337,143 +337,281 @@
 // }
 
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-class Evaluation {
-public:
-    virtual void calculateGrade(int score) = 0; // Pure virtual function
-};
+// class Evaluation {
+// public:
+//     virtual void calculateGrade(int score) = 0; // Pure virtual function
+// };
 
-class TheoryExam : public Evaluation {
-public:
+// class TheoryExam : public Evaluation {
+// public:
     
-        void calculateGrade(int score) override {
-            char grade;
+//         void calculateGrade(int score) override {
+//             char grade;
             
-            if (score >= 90) {
-                grade = 'A';
-            } else if (score >= 75) {
-                grade = 'B';
-            } else if (score >= 60) {
-                grade = 'C';
-            } else if (score >= 40) {
-                grade = 'D';
-            } else {
-                grade = 'F';
-            }
+//             if (score >= 90) {
+//                 grade = 'A';
+//             } else if (score >= 75) {
+//                 grade = 'B';
+//             } else if (score >= 60) {
+//                 grade = 'C';
+//             } else if (score >= 40) {
+//                 grade = 'D';
+//             } else {
+//                 grade = 'F';
+//             }
         
-            cout << "Theory Exam Grade: " << grade << endl;
-        }
+//             cout << "Theory Exam Grade: " << grade << endl;
+//         }
         
-};
+// };
 
-// Derived class for Practical Exams
-class PracticalExam : public Evaluation {
-public:
-void calculateGrade(int score) override {
-    char grade;
+// // Derived class for Practical Exams
+// class PracticalExam : public Evaluation {
+// public:
+// void calculateGrade(int score) override {
+//     char grade;
 
-    if (score >= 85) {
-        grade = 'A';
-    } else if (score >= 70) {
-        grade = 'B';
-    } else if (score >= 55) {
-        grade = 'C';
-    } else if (score >= 35) {
-        grade = 'D';
-    } else {
-        grade = 'F';
-    }
+//     if (score >= 85) {
+//         grade = 'A';
+//     } else if (score >= 70) {
+//         grade = 'B';
+//     } else if (score >= 55) {
+//         grade = 'C';
+//     } else if (score >= 35) {
+//         grade = 'D';
+//     } else {
+//         grade = 'F';
+//     }
 
-    cout << "Practical Exam Grade: " << grade << endl;
-}
+//     cout << "Practical Exam Grade: " << grade << endl;
+// }
 
-};
+// };
 
-class ProjectWork : public Evaluation {
-public:
-void calculateGrade(int score) override {
-    char grade;
+// class ProjectWork : public Evaluation {
+// public:
+// void calculateGrade(int score) override {
+//     char grade;
 
-    if (score >= 80) {
-        grade = 'A';
-    } else if (score >= 65) {
-        grade = 'B';
-    } else if (score >= 50) {
-        grade = 'C';
-    } else if (score >= 30) {
-        grade = 'D';
-    } else {
-        grade = 'F';
-    }
+//     if (score >= 80) {
+//         grade = 'A';
+//     } else if (score >= 65) {
+//         grade = 'B';
+//     } else if (score >= 50) {
+//         grade = 'C';
+//     } else if (score >= 30) {
+//         grade = 'D';
+//     } else {
+//         grade = 'F';
+//     }
 
-    cout << "Project Work Grade: " << grade << endl;
-}
+//     cout << "Project Work Grade: " << grade << endl;
+// }
 
-};
+// };
 
-int main() {
-    Evaluation* e1 = new TheoryExam();
-    e1->calculateGrade(85); 
+// int main() {
+//     Evaluation* e1 = new TheoryExam();
+//     e1->calculateGrade(85); 
 
-    Evaluation* e2 = new PracticalExam();
-    e2->calculateGrade(70);
+//     Evaluation* e2 = new PracticalExam();
+//     e2->calculateGrade(70);
 
-    Evaluation* e3 = new ProjectWork();
-    e3->calculateGrade(50);
+//     Evaluation* e3 = new ProjectWork();
+//     e3->calculateGrade(50);
 
   
-    return 0;
-}
+//     return 0;
+// }
+
+
+// #include <iostream>
+// using namespace std;
+
+// class Discount {
+// public:
+//     virtual void applyDiscount(double price) = 0; 
+// };
+
+// class FestiveDiscount : public Discount {
+// public:
+//     void applyDiscount(double price) override {
+//         double discountedPrice = price - (price * 0.20);
+//         cout << "Final Price after Festive Discount: $" << discountedPrice << endl;
+//     }
+// };
+
+// class LoyaltyDiscount : public Discount {
+// public:
+//     void applyDiscount(double price) override {
+//         double discountedPrice = price - (price * 0.15); 
+//         cout << "Final Price after Loyalty Discount: $" << discountedPrice << endl;
+//     }
+// };
+
+// class BulkPurchaseDiscount : public Discount {
+// public:
+//     void applyDiscount(double price) override {
+//         double discountedPrice = price - (price * 0.10); 
+//         cout << "Final Price after Bulk Purchase Discount: $" << discountedPrice << endl;
+//     }
+// };
+
+// int main() {
+//     Discount* d1 = new FestiveDiscount();
+//     d1->applyDiscount(1000);
+
+//     Discount* d2 = new LoyaltyDiscount();
+//     d2->applyDiscount(1000);
+
+//     Discount* d3 = new BulkPurchaseDiscount();
+//     d3->applyDiscount(1000);
+
+//     delete d1;
+//     delete d2;
+//     delete d3;
+
+//     return 0;
+// }
+
+
+
+// #include <iostream>
+// using namespace std;
+
+// int findhighest(int arr[],int n){
+   
+//     int max=arr[0];
+
+//     for(int i=0;i<n;i++){
+//         if(max<arr[i]){
+//             max=arr[i];
+//         }
+//     }
+//     return max;
+// };
+// int calculateaveg(int arr[],int n){
+//     int sum=0;
+    
+//     for(int i=0;i<n;i++){
+//       sum+=arr[i];
+//     }
+//     int tot=sum/n;
+//     return tot;
+
+// };
+
+
+// int main() {
+//    int N;
+//    cin>>N;
+//    for(int i=0;i<N;i++){
+//     int n1;
+//     cin>>n1;
+//     int arr1[n1];
+      
+//     int n2;
+//      cin>>n2;
+//     int arr2[n2];
+     
+//     int n3;
+//     cin>>n3;
+//     int arr3[n3];
+    
+//     for(int j=0;j<n1;j++){
+//         cin>>arr1[j];
+//     }
+ 
+//     for(int j=0;j<n2;j++){
+//         cin>>arr2[j];
+
+//     }
+   
+//     for(int j=0;j<n3;j++){
+//         cin>>arr3[j];
+//     }
+//     cout<<"Highest Score"<<findhighest(arr1,n1)<<","<<"Average Score"<<calculateaveg(arr1,n1);
+//     cout<<"Highest Score"<<findhighest(arr2,n2)<<","<<"Average Score"<<calculateaveg(arr2,n2);
+//     cout<<"Highest Score"<<findhighest(arr3,n3)<<","<<"Average Score"<<calculateaveg(arr3,n3);
+
+//    }
+
+// }
 
 
 #include <iostream>
 using namespace std;
 
-class Discount {
-public:
-    virtual void applyDiscount(double price) = 0; 
-};
+class SmartD{
+    protected:
+    int deviceid;
+    public:
+    SmartD(int d){
+        deviceid=d;
+    }
+    virtual void display()=0;
+    virtual ~SmartD(){}
 
-class FestiveDiscount : public Discount {
-public:
-    void applyDiscount(double price) override {
-        double discountedPrice = price - (price * 0.20);
-        cout << "Final Price after Festive Discount: $" << discountedPrice << endl;
+};
+class Smartb:public SmartD{
+    private:
+    int brightness;
+    public:
+    Smartb(int d,int b):SmartD(d),brightness(b){}
+    void display() override{
+        cout<<deviceid;
+        cout<<brightness;
     }
 };
-
-class LoyaltyDiscount : public Discount {
-public:
-    void applyDiscount(double price) override {
-        double discountedPrice = price - (price * 0.15); 
-        cout << "Final Price after Loyalty Discount: $" << discountedPrice << endl;
+class Smartl:public SmartD{
+    private:
+    int status;
+    public:
+    Smartl(int d,int s):SmartD(d),status(s){}
+    void display() override{
+        cout<<deviceid;
+        cout<<status;
     }
 };
-
-class BulkPurchaseDiscount : public Discount {
-public:
-    void applyDiscount(double price) override {
-        double discountedPrice = price - (price * 0.10); 
-        cout << "Final Price after Bulk Purchase Discount: $" << discountedPrice << endl;
+class Smartt:public SmartD{
+    private:
+    int temp;
+    public:
+    Smartt(int d,int t):SmartD(d),temp(t){}
+    void display() override{
+        cout<<deviceid;
+        cout<<temp;
     }
 };
 
 int main() {
-    Discount* d1 = new FestiveDiscount();
-    d1->applyDiscount(1000);
+    int N;
+    cin>>N;
+    SmartD** dev=new SmartD*[N];
+   
+        for (int i = 0; i < N; i++) {
+        string type, id;
+        cin >> type >> id;
 
-    Discount* d2 = new LoyaltyDiscount();
-    d2->applyDiscount(1000);
+        if (type == "Light") {
+            int brightness;
+            cin >> brightness;
+            dev[i] = new Smartb(d, b);
+        } else if (type == "Lock") {
+            string status;
+            cin >> status;
+            dev[i] = new Smartl(d, s);
+        } else if (type == "Thermostat") {
+            int temp;
+            cin >> temp;
+            dev[i] = new Smartt(d, t);
+        }
+    }
+    }
 
-    Discount* d3 = new BulkPurchaseDiscount();
-    d3->applyDiscount(1000);
 
-    delete d1;
-    delete d2;
-    delete d3;
 
-    return 0;
 }
-
